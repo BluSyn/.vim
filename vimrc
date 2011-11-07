@@ -138,11 +138,6 @@
 	set smarttab
 	set shiftround
 
-	" matching
-	set showmatch
-	runtime macros/matchit.vim
-	let b:match_ignorecase = 1
-
 	" completion
 	inoremap <C-Tab> <C-X><C-O>
 
@@ -310,6 +305,7 @@
 	" Nerd Tree
 	let NERDTreeMinimalUI=1
 	let NERDTreeDirArrows=1
+	let NERDChristmasTree=1
 
 	" ,d - toggle NERDTree
 	nnoremap <silent> ,d :NERDTreeToggle %:p:h<CR>
