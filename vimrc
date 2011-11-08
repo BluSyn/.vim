@@ -1,7 +1,11 @@
 " General Settings
 " {{{
 
+	" Don't care about vi
 	set nocompatible
+
+	" Security
+	set modelines=0
 
 	" swp & plugin dir
 	set directory=~/.vim
@@ -41,6 +45,7 @@
 	set scrolloff=5
 	set virtualedit+=block
 	set nostartofline
+    set undofile
 
 	" command prompt and status line
 	set showcmd
@@ -54,11 +59,16 @@
 	set wildignore=*.pyc,*.o,*.lo,*.la,*.exe,*.swp,*.db,*.bak,*.old,*.dat,*.,tmp,*.mdb,*~,~*
 
 	" searching
+	"nnoremap / /\v
+	"vnoremap / /\v
 	set ignorecase
 	set smartcase
+	set gdefault
 	set incsearch
+	set showmatch
 	set hlsearch
-
+	nnoremap <tab> %
+	vnoremap <tab> %
 " }}}
 
 " Display Settings
@@ -104,8 +114,9 @@
 	set stl+=%-20.(%l/%L,%c%)\ %P                   " cursor position
 
 	" line numbers
-	set number
+	" set number
 	set numberwidth=4
+	set relativenumber
 
 	" cursor line
 	"autocmd BufEnter,WinEnter * if bufname('%') != '-MiniBufExplorer-' && &buftype != 'quickfix' | setlocal cursorline | endif
@@ -119,6 +130,11 @@
 
 " Text Formatting
 " {{{
+	" Handle text wrapping
+	set wrap
+	set textwidth=79
+	set formatoptions=qrn1
+	set colorcolumn=85
 
 	set selection=inclusive
 	set backspace=indent,eol,start
@@ -163,9 +179,6 @@
 	set shiftwidth=4
 	set softtabstop=4
 
-	" Magic for Regex (??)
-	set magic
-
 	" Copy/paste
 	set clipboard=unnamedplus
 " }}}
@@ -189,6 +202,12 @@
 " Keybindings
 " {{{
 
+	" Change leader key
+	let mapleader = ","
+
+	" Shortcut to :
+	nnoremap ; :
+
 	" map Ctrl+C to Escape
 	inoremap <C-c> <Esc>
 
@@ -200,93 +219,40 @@
 	inoremap <C-y> <C-o><C-y>
 
 	" ,/ remove highlighted search
-	nnoremap <silent> ,/ :noh<CR>
+	nnoremap <silent> <leader>/ :noh<CR>
 
 	" ,1-9 - quick buffer switching
-	nnoremap <silent> ,1 :b1<CR>
-	nnoremap <silent> ,2 :b2<CR>
-	nnoremap <silent> ,3 :b3<CR>
-	nnoremap <silent> ,4 :b4<CR>
-	nnoremap <silent> ,5 :b5<CR>
-	nnoremap <silent> ,6 :b6<CR>
-	nnoremap <silent> ,7 :b7<CR>
-	nnoremap <silent> ,8 :b8<CR>
-	nnoremap <silent> ,9 :b9<CR>
+	nnoremap <silent> <leader>1 :b1<CR>
+	nnoremap <silent> <leader>2 :b2<CR>
+	nnoremap <silent> <leader>3 :b3<CR>
+	nnoremap <silent> <leader>4 :b4<CR>
+	nnoremap <silent> <leader>5 :b5<CR>
+	nnoremap <silent> <leader>6 :b6<CR>
+	nnoremap <silent> <leader>7 :b7<CR>
+	nnoremap <silent> <leader>8 :b8<CR>
+	nnoremap <silent> <leader>9 :b9<CR>
 
-	" ,g - grep the current file
-	function! GrepCurrentFile()
-	if expand('%') == ''
-		return
-	endif
-
-	echohl ModeMsg
-	let l:pattern = input("Grep file: /", expand('<cword>'))
-
-	if l:pattern != ""
-		echohl ModeMsg
-		echo "/ searching..."
-		execute 'silent grep '.l:pattern.' %'
-
-		let l:len = len(getqflist())
-		if l:len > 0
-			copen
-			redraw
-			echo l:len l:len == 1 ? "match" : "matches" "found"
-		else
-			echohl ErrorMsg
-			echo "Pattern not found in current file: ".l:pattern
-		endif
-	endif
-
-	echohl None
-	endfunction
-	nnoremap <silent> ,g :call GrepCurrentFile()<CR>
-
-	" ,G - grep the current path
-	function! GrepCurrentPath()
-	echohl Question
-	let l:pattern = input("Grep path: /", expand('<cword>'))
-
-	if l:pattern != ""
-		if exists('b:rails_root')
-			let l:path = b:rails_root.'/{app,config,lib,vendor/plugins,public/javascripts,public/stylesheets}'
-		else
-			let l:path = '.'
-		endif
-
-		echohl Question
-		echo "/ searching..."
-		execute 'silent grep -r "'.l:pattern.'" '.l:path
-
-		let l:len = len(getqflist())
-		if l:len > 0
-			copen
-			redraw
-			echo l:len l:len == 1 ? "match" : "matches" "found"
-		else
-			echohl ErrorMsg
-			echo "Pattern not found in current path: ".l:pattern
-		endif
-	endif
-
-	echohl None
-	endfunction
-	nnoremap <silent> ,G :call GrepCurrentPath()<CR>
+	" ,q - hardwrap
+	nnoremap <leader>q gqip
 
 	" ,r - reload current buffer
-	nnoremap <silent> ,r :edit<CR>
+	nnoremap <silent> <leader>r :edit<CR>
 
 	" ,R - reload vimrc
-	nnoremap <silent> ,R :runtime! vimrc gvimrc<CR>:let &ft=&ft<CR>:nohlsearch<CR>
+	nnoremap <silent> <leader>R :runtime! vimrc gvimrc<CR>:let &ft=&ft<CR>:nohlsearch<CR>
 
-	" ,v - split vertically
-	nnoremap <silent> ,v :vsplit<CR>
+	" ,v - Reselect pasted text
+	nnoremap <leader>v V`]
+
+	" ,s - split vertically
+	nnoremap <silent> <leader>s :vsplit<CR>
 
 	" ,w - write file
-	nnoremap <silent> ,w :write<CR>
+	nnoremap <silent> <leader>w :write<CR>
 
 	" Continuous Column Scrolling
-	noremap <silent> <leader>sb :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo sp<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
+	" noremap <silent> <leader>+ :<C-u>let @z=&so<CR>:set so=0 noscb\
+	" <CR>:bo sp<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 
 	" Reset ctrlc-c to ESC
 	nnoremap <C-c> <Esc>
@@ -308,12 +274,16 @@
 	let NERDChristmasTree=1
 
 	" ,d - toggle NERDTree
-	nnoremap <silent> ,d :NERDTreeToggle %:p:h<CR>
+	nnoremap <silent> <leader>d :NERDTreeToggle %:p:h<CR>
 
 	" ,t - toggle tagbar
-	nnoremap <silent> ,t :TagbarToggle<CR>
+	nnoremap <silent> <leader>t :TagbarToggle<CR>
 
 	" ,u - open gundo
-	nnoremap <silent> ,u :GundoToggle<CR>
+	nnoremap <silent> <leader>u :GundoToggle<CR>
+
+	" ,a - Ack
+	nnoremap <leader>a :Ack
+	let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 " }}}
