@@ -115,7 +115,6 @@
 	set stl+=%-20.(%l/%L,%c%)\ %P                   " cursor position
 
 	" line numbers
-	" set number
 	set numberwidth=4
 	set relativenumber
 
@@ -233,8 +232,8 @@
 	nnoremap <silent> <leader>8 :b8<CR>
 	nnoremap <silent> <leader>9 :b9<CR>
 
-	" ,q - hardwrap
-	nnoremap <leader>q gqip
+	" ,n - new tab
+	nnoremap <leader>n :tabnew<CR>
 
 	" ,r - reload current buffer
 	nnoremap <silent> <leader>r :edit<CR>
@@ -266,8 +265,8 @@
 " {{{
 
 	" Zen Coding Settings
-	let g:user_zen_expandabbr_key = '<c-e>'
-	let g:use_zen_complete_tag = 1
+	"let g:user_zen_expandabbr_key = '<c-e>'
+	"let g:use_zen_complete_tag = 1
 
 	" Nerd Tree
 	let NERDTreeMinimalUI=1
