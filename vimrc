@@ -46,6 +46,7 @@
 	set virtualedit+=block
 	set nostartofline
     set undofile
+	set undodir=~/.vim
 
 	" command prompt and status line
 	set showcmd

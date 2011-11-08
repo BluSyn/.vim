@@ -22,3 +22,6 @@
 [submodule "bundle/rainbow"]
 	path = bundle/rainbow
 	url = git://github.com/kien/rainbow_parentheses.vim
+[submodule "bundle/pathogen"]
+	path = bundle/pathogen
+	url = git://github.com/tpope/vim-pathogen.git
