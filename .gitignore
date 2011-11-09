@@ -1,3 +1,6 @@
 *.swp
+*.swo
 *.un
 *.un~
+%*
+tmp/*

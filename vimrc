@@ -7,9 +7,6 @@
 	" Security
 	set modelines=0
 
-	" swp & plugin dir
-	set directory=~/.vim
-
 	" load all bundles
 	runtime bundle/pathogen/autoload/pathogen.vim
 	let g:pathogen_disabled = []
@@ -32,10 +29,15 @@
 	set binary
 	set noendofline
 	set nobackup
+	set backupdir=~/.vim/tmp
 	set autowrite
 	set encoding=utf-8
 	set modeline
 	set modelines=2
+    set undofile
+	set undodir=~/.vim/tmp
+	set directory=~/.vim/tmp
+
 
 	" interface
 	set hidden
@@ -45,8 +47,6 @@
 	set scrolloff=5
 	set virtualedit+=block
 	set nostartofline
-    set undofile
-	set undodir=~/.vim
 
 	" command prompt and status line
 	set showcmd
