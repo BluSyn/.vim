@@ -84,7 +84,7 @@
 	set cindent
 
 	" Set font
-	set gfn=Monospace\ 10
+	set gfn=Mensch\ 10
 	set antialias
 
 	" color scheme
@@ -265,8 +265,8 @@
 " {{{
 
 	" Zen Coding Settings
-	"let g:user_zen_expandabbr_key = '<c-e>'
-	"let g:use_zen_complete_tag = 1
+	let g:user_zen_expandabbr_key = '<c-e>'
+	let g:use_zen_complete_tag = 1
 
 	" Nerd Tree
 	let NERDTreeMinimalUI=1
