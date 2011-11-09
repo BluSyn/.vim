@@ -25,6 +25,3 @@
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = git://github.com/ervandew/supertab.git
-[submodule "bundle/sparkup"]
-	path = bundle/sparkup
-	url = git://github.com/rstacruz/sparkup.git
