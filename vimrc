@@ -88,7 +88,7 @@
 
 	" color scheme
 	set t_Co=256
-	colorscheme mustang
+	colorscheme mymustang
 
 	" Turn off bells
 	set noerrorbells
