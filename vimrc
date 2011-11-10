@@ -12,10 +12,10 @@
 	let g:pathogen_disabled = []
 
 	" FuzzyFinder/L9 requires Vim 7.2 and floating-point support
-	"if v:version < '702' || !has('float')
-	"	call add(g:pathogen_disabled, 'l9')
-	"	call add(g:pathogen_disabled, 'fuzzyfinder')
-	"endif
+	if v:version < '702' || !has('float')
+		call add(g:pathogen_disabled, 'l9')
+		call add(g:pathogen_disabled, 'fuzzyfinder')
+	endif
 
 	" Gundo requires Vim 7.3 and Python
 	if v:version < '703' || !has('python')
@@ -262,9 +262,6 @@
 	" Continuous Column Scrolling
 	" noremap <silent> <leader>+ :<C-u>let @z=&so<CR>:set so=0 noscb\
 	" <CR>:bo sp<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
-
-	" Reset ctrlc-c to ESC
-	nnoremap <C-c> <Esc>
 
 	" Custom Commands
 	command! Wsave w! | cd %:p:h | ! websync %
