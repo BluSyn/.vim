@@ -89,7 +89,7 @@
 
 	" color scheme
 	set t_Co=256
-	colorscheme zellner
+	colorscheme myzellner
 
 	" Turn off bells
 	set noerrorbells
