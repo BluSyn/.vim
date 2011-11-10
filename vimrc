@@ -239,7 +239,7 @@
 	nnoremap <silent> <leader>r :edit<CR>
 
 	" ,R - reload vimrc
-	nnoremap <silent> <leader>R :runtime! vimrc gvimrc<CR>:let &ft=&ft<CR>:nohlsearch<CR>
+	nnoremap <silent> <leader>R :source ~/.vimrc<CR>:nohlsearch<CR>
 
 	" ,v - Reselect pasted text
 	nnoremap <leader>v V`]
