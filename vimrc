@@ -258,10 +258,10 @@
 	" ,w - write file
 	nnoremap <silent> <leader>w :write<CR>
 
-	" Continuous Column Scrolling
+	" ,+ - Continuous Column Scrolling
 	noremap <silent> <leader>+ :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 
-	" Custom Commands
+	" :w Custom Websync Script (git.turnwheel.com:websync)
 	command! Wsave w! | cd %:p:h | ! websync %
 " }}}
 

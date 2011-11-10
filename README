@@ -1,0 +1,3 @@
+Recommended Usage:
+git clone vim.blu ~/.vim
+ln -s ~/.vim/vimrc ~/.vimrc
