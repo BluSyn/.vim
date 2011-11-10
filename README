@@ -1,3 +1,5 @@
 Recommended Usage:
 git clone vim.blu ~/.vim
+git submodule init
+git submodule update
 ln -s ~/.vim/vimrc ~/.vimrc
