@@ -89,7 +89,7 @@
 
 	" color scheme
 	set t_Co=256
-	colorscheme myzellner
+	colorscheme mustang
 
 	" Turn off bells
 	set noerrorbells
@@ -116,7 +116,16 @@
 
 	" line numbers
 	set numberwidth=4
-	set relativenumber
+	"set relativenumber
+
+	" Always show line numbers, but only in current window.
+	set number
+	:au WinEnter * :setlocal number
+	:au WinLeave * :setlocal nonumber
+
+	" Automatically resize vertical splits.
+	:au WinEnter * :set winfixheight
+	:au WinEnter * :wincmd =
 
 	" cursor line
 	"autocmd BufEnter,WinEnter * if bufname('%') != '-MiniBufExplorer-' && &buftype != 'quickfix' | setlocal cursorline | endif
