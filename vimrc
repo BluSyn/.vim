@@ -22,7 +22,7 @@
 		call add(g:pathogen_disabled, 'gundo')
 	endif
 
-	" Pathogen
+	" Pathogen loads bundles
 	call pathogen#infect()
 
 	" file handling
@@ -37,7 +37,6 @@
     set undofile
 	set undodir=~/.vim/tmp
 	set directory=~/.vim/tmp
-
 
 	" interface
 	set hidden
@@ -120,8 +119,8 @@
 
 	" Always show line numbers, but only in current window.
 	set number
-	:au WinEnter * :setlocal number
-	:au WinLeave * :setlocal nonumber
+	":au WinEnter * :setlocal number
+	":au WinLeave * :setlocal nonumber
 
 	" Automatically resize vertical splits.
 	:au WinEnter * :set winfixheight
@@ -260,8 +259,7 @@
 	nnoremap <silent> <leader>w :write<CR>
 
 	" Continuous Column Scrolling
-	" noremap <silent> <leader>+ :<C-u>let @z=&so<CR>:set so=0 noscb\
-	" <CR>:bo sp<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
+	noremap <silent> <leader>+ :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 
 	" Custom Commands
 	command! Wsave w! | cd %:p:h | ! websync %
@@ -269,10 +267,6 @@
 
 " Plugin Settings
 " {{{
-
-	" Zen Coding Settings
-	"let g:user_zen_expandabbr_key = '<c-e>'
-	"let g:use_zen_complete_tag = 1
 
 	" Nerd Tree
 	let NERDTreeMinimalUI=1
