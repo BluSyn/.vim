@@ -69,10 +69,12 @@
 	set hlsearch
 	nnoremap <tab> %
 	vnoremap <tab> %
+
 " }}}
 
 " Display Settings
 " {{{
+
 	" Syntax
 	syntax on
 
@@ -138,6 +140,7 @@
 
 " Text Formatting
 " {{{
+
 	" Handle text wrapping
 	set wrap
 	set textwidth=79
@@ -189,10 +192,12 @@
 
 	" Copy/paste
 	set clipboard=unnamedplus
+
 " }}}
 
 " Custom Filetype Settings
 " {{{
+
 	" PHP completion
 	filetype plugin on
 	au FileType php set omnifunc=phpcomplete#CompletePHP
@@ -211,7 +216,7 @@
 " {{{
 
 	" Change leader key
-	let mapleader = ","
+	let mapleader=","
 
 	" Shortcut to :
 	nnoremap ; :
@@ -263,6 +268,7 @@
 
 	" :w Custom Websync Script (git.turnwheel.com:websync)
 	command! Wsave w! | cd %:p:h | ! websync %
+
 " }}}
 
 " Plugin Settings
