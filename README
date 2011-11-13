@@ -2,4 +2,5 @@ Recommended Usage:
 git clone vim.blu ~/.vim
 git submodule init
 git submodule update
+mkdir ~/.vim/tmp
 ln -sb ~/.vim/vimrc ~/.vimrc
