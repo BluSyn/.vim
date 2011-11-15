@@ -56,7 +56,7 @@
 	set report=0
 	set wildmenu
 	set wildmode=longest:full,full
-	set wildignore=*.pyc,*.o,*.lo,*.la,*.exe,*.swp,*.db,*.bak,*.old,*.dat,*.,tmp,*.mdb,*~,~*
+	set wildignore=*.pyc,*.o,*.lo,*.la,*.swp,*.db,*.bak,*.dat,*.,tmp,*.mdb,*~,~*
 
 	" searching
 	"nnoremap / /\v
