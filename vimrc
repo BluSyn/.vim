@@ -212,11 +212,28 @@
 
 " }}}
 
+" Abbreviations
+" {{{
+
+	iabbrev twcopy TurnWheel Designs (cc) 2011
+	iabbrev phpcom /*<cr>Coded by Steven Bower<cr>TurnWheel Designs (cc) 2011<cr><cr>/<cr>
+
+" }}}
+
 " Keybindings
 " {{{
 
 	" Change leader key
 	let mapleader=","
+
+	" Remove current line, and past it below following line
+	nnoremap - ddp
+
+	" Move line up instead of down
+	nnoremap _ ddkP
+
+	" Delete current line in insert mode
+	inoremap <c-d> <esc>ddi
 
 	" Shortcut to :
 	nnoremap ; :
@@ -233,6 +250,9 @@
 
 	" ,/ remove highlighted search
 	nnoremap <silent> <leader>/ :noh<CR>
+
+	" ," - Add quotes around selected word
+	nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 
 	" ,1-9 - quick buffer switching
 	nnoremap <silent> <leader>1 :b1<CR>
