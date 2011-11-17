@@ -218,10 +218,20 @@
 	iabbrev twcopy TurnWheel Designs (cc) 2011
 	iabbrev phpcom /*<cr>Coded by Steven Bower<cr>TurnWheel Designs (cc) 2011<cr><cr>/<cr>
 
+	augroup abbrev
+		autocmd!
+		autocmd FileType php,javascript :iabbrev <buffer> iff if () {}<left><left><left><left>
+		autocmd FileType php :iabbrev <buffer> func function() {}<left><left><left><left><left>
+		autocmd FileType python :iabbrev <buffer> iff if:<left>
+	augroup END
 " }}}
 
 " Keybindings
 " {{{
+
+	" Manage parens
+	onoremap p i(
+	onoremap ip :<c-u>normal! f(vi(<cr>
 
 	" Change leader key
 	let mapleader=","
@@ -289,6 +299,8 @@
 	" :w Custom Websync Script (git.turnwheel.com:websync)
 	command! Wsave w! | cd %:p:h | ! websync %
 
+	" ,z
+	autocmd FileType html :nnoremap <buffer> <leader>z :normal gg=G<CR>
 " }}}
 
 " Plugin Settings
