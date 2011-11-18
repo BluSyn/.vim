@@ -209,7 +209,7 @@
 		" Set vim folding
 		au FileType vim set foldmethod=marker
 
-		" Change limit for HTML (exception)
+		" Change column limit for HTML (exception)
 		au FileType html set colorcolumn=120
 
 		" PHP Autocomplete
@@ -265,7 +265,7 @@
 	nnoremap ; :
 
 	" map Ctrl+C to Escape
-	inoremap <C-c> <Esc>
+	inoremap <c-c> <esc>
 
 	" move to matching pair with Tab in visual mode
 	vmap <Tab> %
@@ -292,25 +292,28 @@
 	nnoremap <silent> <leader>9 :b9<CR>
 
 	" ,n - new tab
-	nnoremap <leader>n :tabnew<CR>
+	nnoremap <leader>n :tabnew<cr>
 
 	" ,r - reload current buffer
-	nnoremap <silent> <leader>r :edit<CR>
+	nnoremap <silent> <leader>r :edit<cr>
 
 	" ,R - reload vimrc
-	nnoremap <silent> <leader>R :runtime! ~/.vimrc<CR>:nohlsearch<CR>
+	nnoremap <silent> <leader>R :runtime! ~/.vimrc<cr>:nohlsearch<cr>
 
 	" ,v - Reselect pasted text
-	nnoremap <leader>v V`]
+	nnoremap <silent> <leader>v V`]
 
 	" ,s - split vertically
-	nnoremap <silent> <leader>s :vsplit<CR>
+	nnoremap <silent> <leader>s :vsplit<cr>
 
 	" ,w - write file
-	nnoremap <silent> <leader>w :write<CR>
+	nnoremap <silent> <leader>w :write<cr>
 
 	" ,+ - Continuous Column Scrolling
-	noremap <silent> <leader>+ :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
+	nnoremap <silent> <leader>+ :<c-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><c-w>p:setl scb<cr>:let &so=@z<cr>
+
+	" ,; - Add ; to end of current line
+	nnoremap <silent> <leader>; :<c-u>normal! mqA;<esc>`q
 
 	" :w Custom Websync Script (git.turnwheel.com:websync)
 	command! Wsave w! | cd %:p:h | ! websync %
