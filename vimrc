@@ -145,6 +145,8 @@
 	set wrap
 	set textwidth=79
 	set formatoptions=qrn1
+
+	" Set recommended limit to 85
 	set colorcolumn=85
 
 	set selection=inclusive
@@ -198,9 +200,22 @@
 " Custom Filetype Settings
 " {{{
 
-	" PHP completion
 	filetype plugin on
-	au FileType php set omnifunc=phpcomplete#CompletePHP
+
+	" FileType autocommands
+	augroup ftype
+		au!
+
+		" Set vim folding
+		au FileType vim set foldmethod=marker
+
+		" Change limit for HTML (exception)
+		au FileType html set colorcolumn=120
+
+		" PHP Autocomplete
+		au FileType php set omnifunc=phpcomplete#CompletePHP
+
+	augroup END
 
 	" PHP Generated Code Highlights (HTML & SQL)
 	let php_sql_query=1
@@ -218,11 +233,12 @@
 	iabbrev twcopy TurnWheel Designs (cc) 2011
 	iabbrev phpcom /*<cr>Coded by Steven Bower<cr>TurnWheel Designs (cc) 2011<cr><cr>/<cr>
 
-	augroup abbrev
-		autocmd!
-		autocmd FileType php,javascript :iabbrev <buffer> iff if () {}<left><left><left><left>
-		autocmd FileType php :iabbrev <buffer> func function() {}<left><left><left><left><left>
-		autocmd FileType python :iabbrev <buffer> iff if:<left>
+	" FileType abbreviations
+	augroup ftype_abbrev
+		au!
+		au FileType php,javascript :iabbrev <buffer> iff if () {}<left><left><left><left>
+		au FileType php :iabbrev <buffer> func function() {}<left><left><left><left><left>
+		au FileType python :iabbrev <buffer> iff if:<left>
 	augroup END
 " }}}
 
