@@ -192,9 +192,10 @@
 	set shiftwidth=4
 	set softtabstop=4
 
-	" Copy/paste
-	set clipboard=unnamedplus
-
+	" Copy/paste to system (if available)
+	if has('unnamedplus')
+		set clipboard=unnamedplus
+	endif
 " }}}
 
 " Custom Filetype Settings
