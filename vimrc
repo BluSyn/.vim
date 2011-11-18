@@ -241,6 +241,7 @@
 		au FileType php :iabbrev <buffer> func function() {}<left><left><left><left><left>
 		au FileType python :iabbrev <buffer> iff if:<left>
 	augroup END
+
 " }}}
 
 " Keybindings
