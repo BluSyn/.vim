@@ -183,7 +183,7 @@
 	set lbr
 
 	" Adjust Tabs
-	set listchars=tab:▸\ 
+	set listchars=tab:▸\ ,conceal:?,eol:\ 
 	set list
 
 	" Adjust Tab Size
@@ -317,11 +317,20 @@
 	" ,; - Add ; to end of current line
 	nnoremap <silent> <leader>; :<c-u>normal! mqA;<esc>`q
 
-	" :w Custom Websync Script (git.turnwheel.com:websync)
-	command! Wsave w! | cd %:p:h | ! websync %
-
 	" ,z
 	autocmd FileType html :nnoremap <buffer> <leader>z :normal gg=G<CR>
+
+" }}}
+
+" Commands
+" {{{
+
+	" :W Custom Websync Script (git.turnwheel.com:websync)
+	command! Wsave w! | cd %:p:h | ! websync %
+
+	" :Rm
+	command! Rmchar :%s///g
+
 " }}}
 
 " Plugin Settings
