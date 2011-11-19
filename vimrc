@@ -196,6 +196,7 @@
 	if has('unnamedplus')
 		set clipboard=unnamedplus
 	endif
+
 " }}}
 
 " Custom Filetype Settings
