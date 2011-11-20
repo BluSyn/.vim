@@ -332,6 +332,8 @@
 	" :Rm
 	command! Rmchar :%s///g
 
+	" :w!! - write as sudo (don't have to re-open file!)
+	ca w!! w !sudo tee >/dev/null "%"
 " }}}
 
 " Plugin Settings
