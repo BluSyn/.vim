@@ -1,5 +1,9 @@
+Use at your own peril. Mostly just a public place for my vimrc
+so I can share it with others. Take as much as you desire.
+
 Recommended Usage:
-git clone vim.blu ~/.vim
+
+git clone vim ~/.vim
 git submodule init
 git submodule update
 mkdir ~/.vim/tmp
