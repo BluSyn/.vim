@@ -312,11 +312,20 @@
 	" ,w - write file
 	nnoremap <silent> <leader>w :write<cr>
 
+	" Removes whitespace
+	nnoremap <silent> ,W :%s/\s\s*$//e<CR>:nohlsearch<CR>:echo "Trailing whitespace cleared"<CR>:echohl none<CR>
+
 	" ,+ - Continuous Column Scrolling
 	nnoremap <silent> <leader>+ :<c-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><c-w>p:setl scb<cr>:let &so=@z<cr>
 
 	" ,; - Add ; to end of current line
 	nnoremap <silent> <leader>; :<c-u>normal! mqA;<esc>`q
+
+	" ,F - Fix all
+	nmap <silent> <leader>F :Ftab<CR>:Fchar<CR>,W
+
+	" ,m - Fix wrapped paragraph (Use with caution)
+	nnoremap <silent> <leader>m gqk<CR><leader>W
 
 	" ,z
 	autocmd FileType html :nnoremap <buffer> <leader>z :normal gg=G<CR>
@@ -329,8 +338,14 @@
 	" :W Custom Websync Script (git.turnwheel.com:websync)
 	command! Wsave w! | cd %:p:h | ! websync %
 
-	" :Rm
-	command! Rmchar :%s///g
+	" :Rmchar removes ^M characters (line endings)
+	command! Fchar :%s///g
+
+	" :Fixtab re-tabs buffers with current tab settings
+	" Change noet to et to expandtabs
+	command! Ftab :set noet|retab!
+
+	command! Fquote :%s/=\([^"][^> ]\{0,80\}\)/="\1"/gc
 
 	" :w!! - write as sudo (don't have to re-open file!)
 	ca w!! w !sudo tee >/dev/null "%"
