@@ -295,7 +295,7 @@
 	nnoremap <silent> <leader>9 :b9<CR>
 
 	" ,n - new tab
-	nnoremap <leader>n :tabnew<cr>
+	nnoremap <silent> <leader>n :tabnew<cr>
 
 	" ,r - reload current buffer
 	nnoremap <silent> <leader>r :edit<cr>
