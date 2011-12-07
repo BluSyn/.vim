@@ -283,6 +283,9 @@
 	" ," - Add quotes around selected word
 	nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 
+	" ,^ - Move up one line
+	nnoremap <leader>^ d$k$a<cr><esc>p>>
+
 	" ,1-9 - quick buffer switching
 	nnoremap <silent> <leader>1 :b1<CR>
 	nnoremap <silent> <leader>2 :b2<CR>
@@ -320,6 +323,8 @@
 
 	" ,; - Add ; to end of current line
 	nnoremap <silent> <leader>; :<c-u>normal! mqA;<esc>`q
+
+
 
 	" ,F - Fix all
 	nmap <silent> <leader>F :Ftab<CR>:Fchar<CR>,W
