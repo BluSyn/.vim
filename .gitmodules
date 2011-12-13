@@ -31,3 +31,6 @@
 [submodule "bundle/L9"]
 	path = bundle/L9
 	url = git://github.com/vim-scripts/L9.git
+[submodule "bundle/sparkup"]
+	path = bundle/sparkup
+	url = git://github.com/kogakure/vim-sparkup.git
