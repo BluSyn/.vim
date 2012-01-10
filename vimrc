@@ -377,4 +377,6 @@
 	nnoremap <leader>a :Ack
 	let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
+	" SmartusLine
+	let g:smartusline_string_to_highlight = '(%n) %f '
 " }}}
