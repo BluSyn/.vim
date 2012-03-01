@@ -40,6 +40,6 @@
 [submodule "bundle/Command-T"]
 	path = bundle/Command-T
 	url = git://github.com/vim-scripts/Command-T.git
-[submodule "bundle/smartusline"]
-	path = bundle/smartusline
-	url = git://github.com/molok/vim-smartusline.git
+[submodule "bundle/powerline"]
+	path = bundle/powerline
+	url = git://github.com/Lokaltog/vim-powerline.git
