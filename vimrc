@@ -85,7 +85,7 @@
 	set cindent
 
 	" Set font
-	set gfn=Mensch\ 10
+	set gfn=Mensch-Powerline\ 10
 	set antialias
 
 	" color scheme
