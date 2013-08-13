@@ -193,6 +193,7 @@
 	set softtabstop=4
 
 	" Copy/paste to system (if available)
+	set clipboard=unnamed
 	if has('unnamedplus')
 		set clipboard=unnamedplus
 	endif
@@ -273,6 +274,9 @@
 	" move to matching pair with Tab in visual mode
 	vmap <Tab> %
 
+	" Replace selected with yank buffer, without storing current
+	vmap r "_dP
+
 	" scroll in insert mode
 	inoremap <C-e> <C-o><C-e>
 	inoremap <C-y> <C-o><C-y>
@@ -323,7 +327,6 @@
 
 	" ,; - Add ; to end of current line
 	nnoremap <silent> <leader>; :<c-u>normal! mqA;<esc>`q
-
 
 
 	" ,F - Fix all
