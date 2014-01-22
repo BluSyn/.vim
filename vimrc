@@ -37,6 +37,7 @@
 	set undofile
 	set undodir=~/.vim/tmp
 	set directory=~/.vim/tmp
+	set shortmess+=A
 
 	" interface
 	set hidden
